@@ -1,3 +1,6 @@
-<div [class.high-contrast-theme]="false">
+<div
+  [class.high-contrast-theme]="accessibilityMode$ | async"
+  class="mat-app-background"
+>
   <router-outlet></router-outlet>
 </div>
