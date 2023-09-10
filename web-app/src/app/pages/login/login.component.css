@@ -1,0 +1,39 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.logo {
+  width: 50vw;
+  height: 50vw;
+  max-width: 200px;
+  max-height: 200px;
+  padding-top: 30px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  gap: 10px;
+  padding: 0 20px 20px 20px;
+}
+
+.form-el {
+  width: calc(100% - 40px);
+  max-width: 400px;
+}

@@ -40,4 +40,15 @@ $my-high-contrast-theme: mat.define-dark-theme(
   * {
     font-size: 1.5rem;
   }
+  img {
+    filter: contrast(200%);
+    border: 2px solid blue;
+    background-color: #fff;
+  }
+
+  button {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: 2px solid blue !important;
+  }
 }
