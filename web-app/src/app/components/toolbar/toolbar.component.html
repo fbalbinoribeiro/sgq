@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="toolbar mat-elevation-z2">
-  <button mat-icon-button>
+  <button mat-icon-button [matMenuTriggerFor]="modules">
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{ title }}</span>
@@ -8,3 +8,24 @@
     <mat-icon>settings_accessibility</mat-icon>
   </button>
 </mat-toolbar>
+
+<mat-menu #modules="matMenu">
+  <button mat-menu-item>Módulo de incidentes e problemas (ocorrências)</button>
+  <button mat-menu-item>Módulo de controle de processos</button>
+  <button mat-menu-item>Módulo de compliance</button>
+  <button mat-menu-item>Módulo de configuração</button>
+  <button mat-menu-item>Módulo de conta</button>
+  <button mat-menu-item>Módulo política de privacidade e termos de uso</button>
+  <button mat-menu-item [matMenuTriggerFor]="accessibility">
+    Módulo acessibilidade
+  </button>
+  <button mat-menu-item>Módulo de relatórios</button>
+  <button mat-menu-item>Módulo de Cadastro</button>
+  <button mat-menu-item [routerLink]="['/login']">Sair</button>
+</mat-menu>
+
+<mat-menu #accessibility="matMenu">
+  <button mat-menu-item (click)="changeAccessibilityStatus()">
+    {{ (accessibilityMode$ | async) ? "Desativar" : "Ativar" }} alto contraste
+  </button>
+</mat-menu>

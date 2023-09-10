@@ -1,8 +1,7 @@
 <div class="box">
-  <img class="logo" src="assets/img/SGQ.png" alt="" />
-
   <div class="spacer"></div>
-
+  <img class="logo" src="assets/img/SGQ.png" alt="" />
+  <div class="spacer"></div>
   <form class="form-box">
     <mat-form-field class="form-el">
       <mat-label>Usuário</mat-label>
@@ -12,8 +11,10 @@
       <mat-label>Senha</mat-label>
       <input matInput type="password" />
     </mat-form-field>
-    <button mat-raised-button color="primary" class="form-el">Entrar</button>
-    <button mat-stroked-button color="primary" class="form-el">
+    <button mat-raised-button color="primary" class="form-el" type="submit" (click)="signIn()">
+      Entrar
+    </button>
+    <button mat-stroked-button color="primary" class="form-el" type="password">
       Esqueci a senha
     </button>
   </form>
