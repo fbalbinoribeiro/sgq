@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { HydrationService } from './services/hydration.service';
 import { AppState } from './stores/app-state';
 import { settingsSelectors } from './stores/settings/settings.selector';
 
@@ -12,7 +13,12 @@ export class AppComponent {
   accessibilityMode$ = this.store.select(
     settingsSelectors.selectAccessibilityMode
   );
-  title = 'web-app';
+  title = 'SGQ';
 
-  constructor(private readonly store: Store<AppState>) {}
+  constructor(
+    private readonly store: Store<AppState>,
+    private readonly hydrationService: HydrationService
+  ) {
+    this.hydrationService.hydrateStore();
+  }
 }
