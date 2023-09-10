@@ -1,0 +1,106 @@
+<mxfile host="Electron" modified="2023-09-10T03:16:05.356Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="T9kI6AmoBOAUFzruOMuz" version="21.6.8" type="device" pages="3">
+  <diagram name="controle-usuario" id="BLyaa6itCjCFjEw_RAnS">
+    <mxGraphModel dx="2924" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8vggqtdipTmLzgGWuCxF-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="8vggqtdipTmLzgGWuCxF-1" target="8vggqtdipTmLzgGWuCxF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="8vggqtdipTmLzgGWuCxF-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="200" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.614;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8vggqtdipTmLzgGWuCxF-1" target="8vggqtdipTmLzgGWuCxF-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8vggqtdipTmLzgGWuCxF-1" target="8vggqtdipTmLzgGWuCxF-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-1" value="Usuário Perfil Admin" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="30" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-4" value="Consulta usuarios&lt;br&gt;cadastrados" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="50" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="8vggqtdipTmLzgGWuCxF-5" target="8vggqtdipTmLzgGWuCxF-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-5" value="Altera perfil de usuarios cadastrados" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="155" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-6" value="Exclui usuários cadastrados" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="265" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-7" value="Cadastra novos usuários" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="375" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8vggqtdipTmLzgGWuCxF-14" target="8vggqtdipTmLzgGWuCxF-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-14" value="Usuário Regular" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="940" y="160" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-15" value="Acessa funcionalidades" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8vggqtdipTmLzgGWuCxF-19" value="Modifica acesso" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="175" width="70" height="35" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="NopLuQtPunF9pRa9PEy0" name="Controle de checklists">
+    <mxGraphModel dx="2074" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Vqj4noSCilfALXf0plnV-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7XfUnDUHddLzXB5Zaopk-1" target="7XfUnDUHddLzXB5Zaopk-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vqj4noSCilfALXf0plnV-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7XfUnDUHddLzXB5Zaopk-1" target="Vqj4noSCilfALXf0plnV-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Vqj4noSCilfALXf0plnV-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7XfUnDUHddLzXB5Zaopk-1" target="Vqj4noSCilfALXf0plnV-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7XfUnDUHddLzXB5Zaopk-1" value="Usuário Habilitado" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7XfUnDUHddLzXB5Zaopk-2" value="Consulta checklists existentes" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vqj4noSCilfALXf0plnV-3" value="Altera checklists existentes" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Vqj4noSCilfALXf0plnV-4" value="Cria novo checklist" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sTFf5585APXMzP7tMxpD" name="Controle de alto contraste">
+    <mxGraphModel dx="2074" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SFmCkZeBrc-XkrxOPozk-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SFmCkZeBrc-XkrxOPozk-1" target="SFmCkZeBrc-XkrxOPozk-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SFmCkZeBrc-XkrxOPozk-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SFmCkZeBrc-XkrxOPozk-1" target="SFmCkZeBrc-XkrxOPozk-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SFmCkZeBrc-XkrxOPozk-1" value="Usuário" style="shape=umlActor;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SFmCkZeBrc-XkrxOPozk-2" value="Ativar modo alto contraste" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="115" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SFmCkZeBrc-XkrxOPozk-3" value="Desativar modo alto contraste" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="235" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
