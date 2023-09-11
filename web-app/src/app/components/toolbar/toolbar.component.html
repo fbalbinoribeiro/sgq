@@ -10,17 +10,40 @@
 </mat-toolbar>
 
 <mat-menu #modules="matMenu">
-  <button mat-menu-item>Módulo de incidentes e problemas (ocorrências)</button>
-  <button mat-menu-item>Módulo de controle de processos</button>
-  <button mat-menu-item>Módulo de compliance</button>
-  <button mat-menu-item>Módulo de configuração</button>
-  <button mat-menu-item>Módulo de conta</button>
-  <button mat-menu-item>Módulo política de privacidade e termos de uso</button>
+  <button mat-menu-item [matMenuTriggerFor]="unconformities">
+    Módulo de incidentes e problemas (ocorrências)
+  </button>
+  <button
+    mat-menu-item
+    *ngIf="(userRole$ | async) !== UserRole.GENERAL"
+    [matMenuTriggerFor]="processes"
+  >
+    Módulo de controle de processos
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="compliance">
+    Módulo de compliance
+  </button>
+  <button
+    mat-menu-item
+    *ngIf="(userRole$ | async) !== UserRole.GENERAL"
+    [matMenuTriggerFor]="settings"
+  >
+    Módulo de configuração
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="accounts">Módulo de conta</button>
+  <button mat-menu-item [matMenuTriggerFor]="privacy">
+    Módulo política de privacidade e termos de uso
+  </button>
   <button mat-menu-item [matMenuTriggerFor]="accessibility">
     Módulo acessibilidade
   </button>
-  <button mat-menu-item>Módulo de relatórios</button>
-  <button mat-menu-item>Módulo de Cadastro</button>
+  <button
+    mat-menu-item
+    *ngIf="(userRole$ | async) !== UserRole.GENERAL"
+    [matMenuTriggerFor]="reports"
+  >
+    Módulo de relatórios
+  </button>
   <button mat-menu-item [routerLink]="['/login']">Sair</button>
 </mat-menu>
 
@@ -28,4 +51,66 @@
   <button mat-menu-item (click)="changeAccessibilityStatus()">
     {{ (accessibilityMode$ | async) ? "Desativar" : "Ativar" }} alto contraste
   </button>
+</mat-menu>
+
+<mat-menu #unconformities="matMenu">
+  <button mat-menu-item>Registrar não-conformidade</button>
+  <button mat-menu-item *ngIf="(userRole$ | async) !== UserRole.GENERAL">
+    Controle de não-conformidades
+  </button>
+  <button mat-menu-item *ngIf="(userRole$ | async) !== UserRole.GENERAL">
+    Controle de ações do SGQ
+  </button>
+</mat-menu>
+
+<mat-menu #processes="matMenu">
+  <button mat-menu-item>Controle de auditorias</button>
+  <button mat-menu-item>Controle de resultados de checklists</button>
+</mat-menu>
+
+<mat-menu #compliance="matMenu">
+  <button mat-menu-item>Consulta de normas</button>
+  <button mat-menu-item *ngIf="(userRole$ | async) !== UserRole.GENERAL">
+    Solicitações de análise
+  </button>
+</mat-menu>
+
+<mat-menu #settings="matMenu">
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+    Controle de usuários
+  </button>
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+    Controle de empresas
+  </button>
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+    Controle de planos de auditoria
+  </button>
+  <button mat-menu-item *ngIf="(userRole$ | async) !== UserRole.GENERAL">
+    Controle de checklists
+  </button>
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+    Controle de empresas de consultorias
+  </button>
+</mat-menu>
+
+<mat-menu #accounts="matMenu">
+  <button mat-menu-item>Meus dados</button>
+  <button mat-menu-item>Alterar senha</button>
+  <button mat-menu-item>Excluir conta</button>
+</mat-menu>
+
+<mat-menu #privacy="matMenu">
+  <button mat-menu-item>Exportar dados armazenados do usuário</button>
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+    Exportar dados armazenados da empresa
+  </button>
+  <button mat-menu-item>Consultar política de privacidade</button>
+  <button mat-menu-item>Consultar termos de uso do sistema</button>
+</mat-menu>
+
+<mat-menu #reports="matMenu">
+  <button mat-menu-item>Relatório de análises de consultoria</button>
+  <button mat-menu-item>Relatório de auditoria</button>
+  <button mat-menu-item>Relatório de controle de processo (checklist)</button>
+  <button mat-menu-item>Relatório de não conformidades</button>
 </mat-menu>

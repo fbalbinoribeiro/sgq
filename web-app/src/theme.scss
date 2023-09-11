@@ -20,6 +20,26 @@ $my-theme: mat.define-light-theme(
   )
 );
 
+$my-custom-level: mat.define-typography-level(
+  $font-size: 1.5rem,
+);
+
+$my-custom-typography: mat.define-typography-config(
+  $headline-1: $my-custom-level,
+  $headline-2: $my-custom-level,
+  $headline-3: $my-custom-level,
+  $headline-4: $my-custom-level,
+  $headline-5: $my-custom-level,
+  $headline-6: $my-custom-level,
+  $subtitle-1: $my-custom-level,
+  $subtitle-2: $my-custom-level,
+  $body-1: $my-custom-level,
+  $body-2: $my-custom-level,
+  $caption: $my-custom-level,
+  $button: $my-custom-level,
+  $overline: $my-custom-level,
+);
+
 $my-high-contrast-theme: mat.define-dark-theme(
   (
     color: (
@@ -27,19 +47,15 @@ $my-high-contrast-theme: mat.define-dark-theme(
       accent: $my-high-contrast-accent,
       warn: $my-high-contrast-warn,
     ),
+    typography: $my-custom-typography,
   )
 );
 
 @include mat.all-component-themes($my-theme);
-* {
-  font-size: 1rem;
-}
 
 .high-contrast-theme {
-  @include mat.all-component-colors($my-high-contrast-theme);
-  * {
-    font-size: 1.5rem;
-  }
+  @include mat.all-component-themes($my-high-contrast-theme);
+
   img {
     filter: contrast(200%);
     border: 2px solid blue;
