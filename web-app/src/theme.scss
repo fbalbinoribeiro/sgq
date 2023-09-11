@@ -65,6 +65,8 @@ $my-high-contrast-theme: mat.define-dark-theme(
   button {
     background-color: #fff !important;
     color: #000 !important;
-    border: 2px solid blue !important;
+    border: 2px inset blue !important;
+    margin: 5px !important;
+    padding: 2px !important;
   }
 }
