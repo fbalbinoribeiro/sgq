@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/components/material.module';
 import { SharedComponentsModule } from 'src/app/components/shared-components.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
@@ -15,6 +16,8 @@ import { UsersComponent } from './users.component';
     SharedComponentsModule,
     MaterialModule,
     PipesModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class UsersModule {}
