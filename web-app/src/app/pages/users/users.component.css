@@ -22,6 +22,12 @@ mat-card {
   flex-direction: row;
 }
 
+@media screen and (max-width: 600px) {
+  mat-card {
+    flex-direction: column;
+  }
+}
+
 mat-card-header {
   flex: 1 0 auto;
   display: flex;
