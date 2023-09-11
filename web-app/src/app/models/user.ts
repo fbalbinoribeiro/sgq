@@ -9,6 +9,7 @@ export class User {
   name: string;
   email: string;
   role: UserRole;
+  token?: string;
 
   constructor(id: number, name: string, email: string, role: UserRole) {
     this.id = id;
