@@ -1,5 +1,6 @@
 <app-toolbar [title]="'Usuários'"></app-toolbar>
 <div class="box">
+  <h3 class="user-title">Usuários Cadastrados</h3>
   <mat-card *ngFor="let user of users">
     <mat-card-header>
       <mat-card-title>
@@ -18,8 +19,8 @@
     </mat-card-actions>
   </mat-card>
 
-  <h3>{{ selectedUser ? "Editar" : "Novo" }} usuário</h3>
   <form class="form-box" (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <h3>{{ selectedUser ? "Editar" : "Novo" }} usuário</h3>
     <mat-form-field class="form-el">
       <mat-label>Nome:</mat-label>
       <input matInput type="text" formControlName="name" placeholder="Nome" />

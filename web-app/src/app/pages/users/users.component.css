@@ -10,6 +10,11 @@
   padding: 10px;
 }
 
+.user-title {
+  flex: 1 0 100%;
+  text-align: center;
+}
+
 mat-card {
   width: 100%;
   max-width: 400px;

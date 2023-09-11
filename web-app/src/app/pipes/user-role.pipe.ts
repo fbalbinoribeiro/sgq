@@ -13,7 +13,7 @@ export class UserRolePipe implements PipeTransform {
         return 'Gestor';
       case UserRole.GENERAL:
       default:
-        return 'Reportador';
+        return 'Colaborador';
     }
   }
 }
