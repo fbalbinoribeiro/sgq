@@ -11,7 +11,6 @@ export enum ChecklistAllowedTypes {
 export class ChecklistCustomField {
   constructor(
     public id: number,
-    public user: User,
     public checklistField: ChecklistAllowedTypes,
     public description: string
   ) {}
@@ -20,6 +19,7 @@ export class ChecklistCustomField {
 export class Checklist {
   constructor(
     public id: number,
+    public user: User,
     public name: string,
     public description: string,
     public customFields: ChecklistCustomField[]
