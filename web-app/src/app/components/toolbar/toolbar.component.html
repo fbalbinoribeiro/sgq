@@ -76,7 +76,7 @@
 </mat-menu>
 
 <mat-menu #settings="matMenu">
-  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
+  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN" [routerLink]="['/users']">
     Controle de usuários
   </button>
   <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">

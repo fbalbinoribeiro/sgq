@@ -11,7 +11,13 @@
       <mat-label>Senha</mat-label>
       <input matInput type="password" />
     </mat-form-field>
-    <button mat-raised-button color="primary" class="form-el" type="submit" (click)="signIn()">
+    <button
+      mat-raised-button
+      color="primary"
+      class="form-el"
+      type="button"
+      (click)="signIn()"
+    >
       Entrar
     </button>
     <button mat-stroked-button color="primary" class="form-el" type="password">

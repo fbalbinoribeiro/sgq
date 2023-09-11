@@ -9,4 +9,8 @@ export class AuthService {
   hasAccess() {
     return true;
   }
+
+  isAdmin() {
+    return true;
+  }
 }
