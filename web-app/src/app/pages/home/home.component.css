@@ -12,11 +12,13 @@
 .div-chart {
   width: 90vw;
   max-width: 500px;
+  min-height: 300px;
 }
 
 @media screen and (max-width: 600px) {
   .box {
     flex-direction: column;
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }

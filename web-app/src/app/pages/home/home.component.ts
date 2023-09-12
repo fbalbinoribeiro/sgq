@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Chart, registerables } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Subject, takeUntil } from 'rxjs';
 import { AppState } from 'src/app/stores/app-state';
 import { settingsSelectors } from 'src/app/stores/settings/settings.selector';
 
-Chart.register(...registerables);
+Chart.register(...registerables, ChartDataLabels);
 
 @Component({
   selector: 'app-home',
@@ -50,12 +51,21 @@ export class HomeComponent implements OnInit, OnDestroy {
             labels: ['Novas', 'Em tratamento', 'Finalizadas'],
             datasets: [
               {
-                label: 'Ocorrências',
+                label: 'Ocorrências no ano',
                 data: [300, 50, 100],
                 backgroundColor: [redColor, yellowColor, greenColor],
                 hoverOffset: 4,
               },
             ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: 'Ocorrências no ano',
+              },
+            },
           },
         });
 
@@ -65,13 +75,30 @@ export class HomeComponent implements OnInit, OnDestroy {
             labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul'],
             datasets: [
               {
-                label: 'Ocorrências mês a mês',
+                label: 'Qtd',
                 data: [6, 9, 8, 1, 5, 5, 4],
                 backgroundColor: [redColor],
               },
             ],
           },
           options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+              datalabels: {
+                anchor: 'start',
+                align: 'top',
+                formatter: Math.round,
+                font: {
+                  weight: 'bold',
+                  size: fontSize,
+                },
+              },
+              title: {
+                display: true,
+                text: 'Ocorrências no mês',
+              },
+            },
             scales: {
               y: {
                 beginAtZero: true,
@@ -80,5 +107,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           },
         });
       });
+
+    this.chart2.canvas.parentNode.style.height = '300px';
   }
 }
