@@ -1,9 +1,24 @@
 .box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   gap: 10px;
   height: 100vh;
   overflow: hidden;
+  padding: 10px;
+}
+
+.div-chart {
+  width: 90vw;
+  max-width: 500px;
+  min-height: 300px;
+}
+
+@media screen and (max-width: 600px) {
+  .box {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
