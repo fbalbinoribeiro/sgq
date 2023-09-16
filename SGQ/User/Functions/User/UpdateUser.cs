@@ -11,30 +11,29 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using System;
 
-namespace User.Functions
+namespace SGQ.Functions.User
 {
     public static class UpdateUser
     {
         [FunctionName("user-update")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "put", Route = null)] HttpRequest req, 
-            			 [CosmosDB(
-			databaseName: "sgq",
-			collectionName: "user", 
-			Id = "{Query.id}",
-			PartitionKey = "{Query.id}",
-			ConnectionStringSetting = "myCosmosDb")] Document document,
+            [HttpTrigger(AuthorizationLevel.Function, "put", Route = null)] HttpRequest req, [CosmosDB(
+        databaseName: "sgq",
+        collectionName: "user",
+        Id = "{Query.id}",
+        PartitionKey = "{Query.id}",
+        ConnectionStringSetting = "myCosmosDb")] Document document,
             [CosmosDB(
-		databaseName: "sgq",
-		collectionName: "user",
-		ConnectionStringSetting = "myCosmosDb")] DocumentClient client,
+        databaseName: "sgq",
+        collectionName: "user",
+        ConnectionStringSetting = "myCosmosDb")] DocumentClient client,
             ILogger log)
         {
             log.LogInformation("Update User started");
 
-			string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var user = JsonConvert.DeserializeObject<UserModel>(requestBody);
-			UserModel convertedUser = new UserModel(req.Query["id"], user.Name, user.Email, user.Password, user.Role);
+            UserModel convertedUser = new UserModel(req.Query["id"], user.Name, user.Email, user.Password, user.Role);
 
             Uri collection = UriFactory.CreateDocumentCollectionUri("sgq", "user");
             await client.DeleteDocumentAsync(document.SelfLink, new RequestOptions() { PartitionKey = new PartitionKey(convertedUser.Id) });
@@ -42,7 +41,7 @@ namespace User.Functions
 
             log.LogInformation($"User id: {convertedUser.Id}");
 
-			return new OkObjectResult(user);
+            return new OkObjectResult(user);
         }
     }
 }
