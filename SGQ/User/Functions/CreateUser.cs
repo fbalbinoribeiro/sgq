@@ -12,9 +12,9 @@ namespace User.Functions
 {
     public static class CreateUser
     {
-        [FunctionName("user")]
+        [FunctionName("user-create")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", "put", "delete", Route = null)] HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req, 
             [CosmosDB(
 		databaseName: "sgq",
 		collectionName: "user",
@@ -24,12 +24,14 @@ namespace User.Functions
             log.LogInformation("Create User started");
 
 			string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            UserModel user = JsonConvert.DeserializeObject<UserModel>(requestBody);
-			await documentsOut.AddAsync(user);
+            var user = JsonConvert.DeserializeObject<UserModel>(requestBody);
+            UserModel convertedUser = new UserModel(user.Id, user.Name, user.Email, user.Password, user.Role);
+            
+            await documentsOut.AddAsync(convertedUser);
 
-            log.LogInformation($"User id: {user.Id}");
+            log.LogInformation($"User id: {convertedUser.Id}");
 
-			return new OkObjectResult(user);
+			return new OkObjectResult(convertedUser);
         }
     }
 }

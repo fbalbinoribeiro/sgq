@@ -13,7 +13,7 @@ namespace User.Functions
 {
     public static class DeleteUser
     {
-        [FunctionName("user/delete")]
+        [FunctionName("user-delete")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "delete", Route = null)] HttpRequest req,
 			 [CosmosDB(

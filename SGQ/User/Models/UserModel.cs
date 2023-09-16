@@ -27,14 +27,14 @@ public class UserModel
 		Id = id ?? System.Guid.NewGuid().ToString();
 		Name = name;
 		Email = email;
-		Password = string.IsNullOrEmpty(password) ? string.Empty : GenerateShaPassword(password);
+		Password = string.IsNullOrEmpty(password) ? GenerateShaPassword(password): password;
 		Role = role;
 	}
 
 	public string GenerateShaPassword(string password)
 	{
 		using SHA256 sha = SHA256.Create();
-		byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+		byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes("123456"));
 		string stringHash = string.Join("", hash.Select((b) => $"{b:X2}").ToList());
 		return stringHash;
 	}
