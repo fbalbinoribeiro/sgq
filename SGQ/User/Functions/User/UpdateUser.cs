@@ -17,7 +17,7 @@ namespace SGQ.Functions.User
     {
         [FunctionName("user-update")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "put", Route = null)] HttpRequest req, [CosmosDB(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = null)] HttpRequest req, [CosmosDB(
         databaseName: "sgq",
         collectionName: "user",
         Id = "{Query.id}",

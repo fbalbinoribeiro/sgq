@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +6,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using User.Models;
 using SGQ.Models;
 
 namespace SGQ.Functions.Checklist
@@ -16,7 +14,7 @@ namespace SGQ.Functions.Checklist
     {
         [FunctionName("checklist-create")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
 			[CosmosDB(
 		databaseName: "sgq",
 		collectionName: "checklist",

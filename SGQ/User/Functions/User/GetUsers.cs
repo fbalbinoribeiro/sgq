@@ -15,7 +15,7 @@ namespace SGQ.Functions.User
     {
         [FunctionName("users")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, [CosmosDB(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, [CosmosDB(
         databaseName: "sgq",
         collectionName: "user",
         ConnectionStringSetting = "myCosmosDb")] DocumentClient client,

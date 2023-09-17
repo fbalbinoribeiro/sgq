@@ -19,7 +19,7 @@ namespace SGQ.Functions.Checklist
     {
         [FunctionName("checklists")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, [CosmosDB(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, [CosmosDB(
 		databaseName: "sgq",
 		collectionName: "checklist",
 		ConnectionStringSetting = "myCosmosDb")] DocumentClient client,

@@ -10,14 +10,16 @@ using Newtonsoft.Json;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents;
 using SGQ.Models;
+using Microsoft.Azure.WebJobs.ServiceBus;
 
 namespace SGQ.Functions.Checklist
 {
 	public static class UpdateChecklist
 	{
 		[FunctionName("checklist-update")]
+		[return: ServiceBus("notification", EntityType = EntityType.Queue)]
 		public static async Task<IActionResult> Run(
-			[HttpTrigger(AuthorizationLevel.Function, "put", Route = null)] HttpRequest req, [CosmosDB(
+			[HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = null)] HttpRequest req, [CosmosDB(
 		databaseName: "sgq",
 		collectionName: "checklist",
 		Id = "{Query.id}",

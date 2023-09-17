@@ -14,7 +14,7 @@ namespace User.Functions
     {
         [FunctionName("user-create")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req, 
             [CosmosDB(
 		databaseName: "sgq",
 		collectionName: "user",
