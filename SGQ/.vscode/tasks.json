@@ -12,7 +12,7 @@
       "type": "process",
       "problemMatcher": "$msCompile",
       "options": {
-        "cwd": "${workspaceFolder}/User"
+        "cwd": "${workspaceFolder}/SGQ"
       }
     },
     {
@@ -31,7 +31,7 @@
       },
       "problemMatcher": "$msCompile",
       "options": {
-        "cwd": "${workspaceFolder}/User"
+        "cwd": "${workspaceFolder}/SGQ"
       }
     },
     {
@@ -47,7 +47,7 @@
       "type": "process",
       "problemMatcher": "$msCompile",
       "options": {
-        "cwd": "${workspaceFolder}/User"
+        "cwd": "${workspaceFolder}/SGQ"
       }
     },
     {
@@ -64,14 +64,14 @@
       "dependsOn": "clean release (functions)",
       "problemMatcher": "$msCompile",
       "options": {
-        "cwd": "${workspaceFolder}/User"
+        "cwd": "${workspaceFolder}/SGQ"
       }
     },
     {
       "type": "func",
       "dependsOn": "build (functions)",
       "options": {
-        "cwd": "${workspaceFolder}/User/bin/Debug/net6.0"
+        "cwd": "${workspaceFolder}/SGQ/bin/Debug/net6.0"
       },
       "command": "host start",
       "isBackground": true,
