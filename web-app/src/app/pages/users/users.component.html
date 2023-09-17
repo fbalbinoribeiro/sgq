@@ -1,7 +1,7 @@
 <app-toolbar [title]="'Usuários'"></app-toolbar>
 <div class="box">
   <h3 class="user-title">Usuários Cadastrados</h3>
-  <mat-card *ngFor="let user of users">
+  <mat-card *ngFor="let user of users$ | async">
     <mat-card-header>
       <mat-card-title>
         <b>

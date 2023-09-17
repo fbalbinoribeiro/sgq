@@ -15,7 +15,7 @@ export class ChecklistsComponent {
   checklists: Checklist[] = [
     new Checklist(
       1,
-      new User(1, 'Usuário 1', 'xyz@abc.com', UserRole.GENERAL),
+      new User("1", 'Usuário 1', 'xyz@abc.com', UserRole.GENERAL),
       'Checklist 1',
       'Descrição do checklist 1',
       [

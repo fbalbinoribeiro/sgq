@@ -1,12 +1,14 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   MAT_DIALOG_DATA,
   MatDialog,
   MatDialogRef,
 } from '@angular/material/dialog';
+import { BehaviorSubject, Observable, map, switchMap } from 'rxjs';
 import { MaterialModule } from 'src/app/components/material.module';
 import { User, UserRole } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 // The Angular default validator has a strange behavior where for example abc@xyz is considered valid.
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
@@ -23,11 +25,11 @@ export class UsersComponent {
 
   selectedUser: User | undefined;
 
-  users: User[] = [
-    new User(1, 'John', 'john@123.com', UserRole.ADMIN),
-    new User(2, 'Jane', 'jane@123.com', UserRole.MANAGER),
-    new User(3, 'Joe', 'joe@123.com', UserRole.GENERAL),
-  ];
+  event$: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
+  users$: Observable<User[]> = this.event$.pipe(
+    switchMap(() => this.userService.getAll()),
+    map((users) => users.slice())
+  );
 
   userForm: FormGroup = new FormGroup({
     name: new FormControl('', [
@@ -42,7 +44,11 @@ export class UsersComponent {
     role: new FormControl('', [Validators.required]),
   });
 
-  constructor(private readonly dialog: MatDialog) {}
+  constructor(
+    private readonly dialog: MatDialog,
+    private readonly userService: UserService,
+    private readonly changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   openDeleteDialog(user: User): void {
     const dialogRef = this.dialog.open(DialogDeleteDialog, {
@@ -50,7 +56,14 @@ export class UsersComponent {
     });
 
     dialogRef.afterClosed().subscribe((user) => {
-      this.users = this.users.filter((u) => u.id !== user?.id);
+      if (user) {
+        this.userService.delete(user.id).subscribe((deleted) => {
+          if (deleted) {
+            this.event$.next();
+            this.userForm.reset();
+          }
+        });
+      }
     });
   }
 
@@ -71,17 +84,28 @@ export class UsersComponent {
   onSubmit() {
     if (this.userForm.valid) {
       const user = new User(
-        this.selectedUser?.id ?? this.users.length + 1,
+        this.selectedUser?.id,
         this.userForm.value.name,
         this.userForm.value.email,
         this.userForm.value.role
       );
 
-      this.users = this.users
-        .filter((x) => x.id !== user.id)
-        .concat(user)
-        .sort((a, b) => a.id - b.id);
-      this.userForm.reset();
+      if (user.id) {
+        this.userService.update(user.id, user).subscribe((updated) => {
+          if (updated) {
+            this.event$.next();
+            this.userForm.reset();
+          }
+        });
+        return;
+      }
+
+      this.userService.create(user).subscribe((created) => {
+        if (created) {
+          this.event$.next();
+          this.userForm.reset();
+        }
+      });
     }
   }
 }

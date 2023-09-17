@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { AppStoreModule } from './stores/app-store.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppStoreModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },

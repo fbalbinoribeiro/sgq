@@ -25,7 +25,7 @@ export class UserService {
 
   delete(id: string): Observable<boolean> {
     return this.http
-      .delete(`${baseUrl}/user-update?id=${id}`)
+      .delete(`${baseUrl}/user-delete?id=${id}`)
       .pipe(map(() => true));
   }
 }
