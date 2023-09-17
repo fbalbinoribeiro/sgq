@@ -24,10 +24,11 @@ namespace SGQ.Functions.User
             log.LogInformation("Get Users started");
 
             List<UserModel> users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
+            List<UserModel> convertedUsers = users.Select(u => new UserModel(u.Id, u.Name, u.Email, u.Role)).ToList();
 
             log.LogInformation($"Users count: {users.Count}");
 
-            return new OkObjectResult(users);
+            return new OkObjectResult(convertedUsers);
         }
     }
 }

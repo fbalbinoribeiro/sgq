@@ -18,7 +18,8 @@ public class Jwt {
         _jwtEncoder = new JwtEncoder(_algorithm, _serializer, _base64Encoder);
     }
     public string IssuingJWT(UserModel user) {
-        Dictionary <string, object> claims = new Dictionary <string, object> {
+        Dictionary <string, object> claims = new()
+        {
             {
                 "username",
                 user

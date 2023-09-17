@@ -21,19 +21,30 @@ public class UserModel
 	public string Password { get; set; } = "123456";
 	public UserRole Role { get; set; }
 
+	public UserModel(
+		string id, string name, string email, UserRole role
+	) {
+		Id = id ?? System.Guid.NewGuid().ToString();
+		Name = name;
+		Email = email;
+		Password = string.Empty;
+		Role = role;
+	 }
+
+	[JsonConstructor]
 	public UserModel(string id, string name, string email, string password, UserRole role)
 	{
 		Id = id ?? System.Guid.NewGuid().ToString();
 		Name = name;
 		Email = email;
-		Password = string.IsNullOrEmpty(password) ? GenerateShaPassword(password): password;
+		Password = string.IsNullOrEmpty(password) ? GenerateShaPassword(Password) : GenerateShaPassword(password);
 		Role = role;
 	}
 
-	public string GenerateShaPassword(string password)
+	public static string GenerateShaPassword(string password)
 	{
 		using SHA256 sha = SHA256.Create();
-		byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes("123456"));
+		byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
 		string stringHash = string.Join("", hash.Select((b) => $"{b:X2}").ToList());
 		return stringHash;
 	}
