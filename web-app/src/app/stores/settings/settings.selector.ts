@@ -6,8 +6,13 @@ const selectAccessibilityMode = createSelector(
   settingsSlice,
   (state: SettingsState) => state.accessibilityMode
 );
+const isLoading = createSelector(
+  settingsSlice,
+  (state: SettingsState) => state.isLoading
+);
 
 export const settingsSelectors = {
   settingsSlice,
   selectAccessibilityMode,
+  isLoading,
 };

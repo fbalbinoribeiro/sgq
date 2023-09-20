@@ -13,6 +13,8 @@ export class AppComponent {
   accessibilityMode$ = this.store.select(
     settingsSelectors.selectAccessibilityMode
   );
+  isLoading$ = this.store.select(settingsSelectors.isLoading);
+
   title = 'SGQ';
 
   constructor(

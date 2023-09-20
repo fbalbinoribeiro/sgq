@@ -1,10 +1,12 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { AppStoreModule } from './stores/app-store.module';
 
 @NgModule({
@@ -15,10 +17,12 @@ import { AppStoreModule } from './stores/app-store.module';
     BrowserAnimationsModule,
     AppStoreModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
