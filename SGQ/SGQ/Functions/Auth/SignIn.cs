@@ -33,10 +33,12 @@ namespace SGQ.Functions.Auth
 
             if (users.Any(u => u.Email == convertedUser.Email && u.Password == convertedUser.Password))
             {
-                Jwt jwt = new();
-                string token = jwt.IssuingJWT(convertedUser);
+                var foundUser = users.First(u => u.Email == convertedUser.Email && u.Password == convertedUser.Password);
 
-                log.LogInformation($"User id: {convertedUser.Id}");
+                Jwt jwt = new();
+                string token = jwt.IssuingJWT(foundUser);
+
+                log.LogInformation($"User id: {foundUser.Id}");
 
                 return new OkObjectResult(token);
             } else {

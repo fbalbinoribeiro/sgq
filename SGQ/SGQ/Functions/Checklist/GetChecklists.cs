@@ -6,12 +6,12 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Microsoft.Azure.Documents.Client;
 using System.Collections.Generic;
 using System.Linq;
 using User.Models;
 using SGQ.Models;
+using Utils;
 
 namespace SGQ.Functions.Checklist
 {
@@ -27,11 +27,19 @@ namespace SGQ.Functions.Checklist
         {
 			log.LogInformation("Get checklists started");
 
-			List<ChecklistModel> users = client.CreateDocumentQuery<ChecklistModel>(UriFactory.CreateDocumentCollectionUri("sgq", "checklist")).ToList();
+			List<UserModel> users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
+            List<UserModel> convertedUsers = users.Select(u => new UserModel(u.Id, u.Name, u.Email, u.Role)).ToList();
+			var allowed = new Jwt().ValidateUserAndRoles(new List<UserRole> { UserRole.ADMIN, UserRole.MANAGER }, req, users);
+            if (allowed == false)
+            {
+                return new UnauthorizedResult();
+            }
 
-			log.LogInformation($"Checklists count: {users.Count}");
+			List<ChecklistModel> checklists = client.CreateDocumentQuery<ChecklistModel>(UriFactory.CreateDocumentCollectionUri("sgq", "checklist")).ToList();
 
-			return new OkObjectResult(users);
+			log.LogInformation($"Checklists count: {checklists.Count}");
+
+			return new OkObjectResult(checklists);
 		}
     }
 }

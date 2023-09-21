@@ -11,6 +11,10 @@ using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents;
 using SGQ.Models;
 using Microsoft.Azure.WebJobs.ServiceBus;
+using User.Models;
+using System.Collections.Generic;
+using Utils;
+using System.Linq;
 
 namespace SGQ.Functions.Checklist
 {
@@ -32,6 +36,14 @@ namespace SGQ.Functions.Checklist
 			ILogger log)
 		{
 			log.LogInformation("Update Checklist started");
+
+			List<UserModel> users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
+            List<UserModel> convertedUsers = users.Select(u => new UserModel(u.Id, u.Name, u.Email, u.Role)).ToList();
+			var allowed = new Jwt().ValidateUserAndRoles(new List<UserRole> { UserRole.ADMIN, UserRole.MANAGER }, req, users);
+            if (allowed == false)
+            {
+                return new UnauthorizedResult();
+            }
 
 			string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 			var checklist = JsonConvert.DeserializeObject<ChecklistModel>(requestBody);

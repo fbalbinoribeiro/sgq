@@ -10,6 +10,9 @@ using User.Models;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using System;
+using Utils;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SGQ.Functions.User
 {
@@ -30,6 +33,14 @@ namespace SGQ.Functions.User
             ILogger log)
         {
             log.LogInformation("Update User started");
+
+            List<UserModel> users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
+            List<UserModel> convertedUsers = users.Select(u => new UserModel(u.Id, u.Name, u.Email, u.Role)).ToList();
+            var allowed = new Jwt().ValidateUserAndRoles(new List<UserRole> { UserRole.ADMIN }, req, users);
+            if (allowed == false)
+            {
+                return new UnauthorizedResult();
+            }
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var user = JsonConvert.DeserializeObject<UserModel>(requestBody);

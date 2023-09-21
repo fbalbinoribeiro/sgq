@@ -8,6 +8,7 @@ using User.Models;
 using Microsoft.Azure.Documents.Client;
 using System.Collections.Generic;
 using System.Linq;
+using Utils;
 
 namespace SGQ.Functions.User
 {
@@ -25,6 +26,12 @@ namespace SGQ.Functions.User
 
             List<UserModel> users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
             List<UserModel> convertedUsers = users.Select(u => new UserModel(u.Id, u.Name, u.Email, u.Role)).ToList();
+            var allowed = new Jwt().ValidateUserAndRoles(new List<UserRole> { UserRole.ADMIN }, req, users);
+            if (allowed == false)
+            {
+                return new UnauthorizedResult();
+            }
+
 
             log.LogInformation($"Users count: {users.Count}");
 

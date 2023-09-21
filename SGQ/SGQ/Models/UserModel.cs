@@ -37,7 +37,7 @@ public class UserModel
 		Id = id ?? System.Guid.NewGuid().ToString();
 		Name = name;
 		Email = email;
-		Password = string.IsNullOrEmpty(password) ? GenerateShaPassword(Password) : GenerateShaPassword(password);
+		Password = string.IsNullOrEmpty(password) ? GenerateShaPassword(Password) : password;
 		Role = role;
 	}
 
