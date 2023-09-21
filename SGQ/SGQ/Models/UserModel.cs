@@ -44,7 +44,7 @@ public class UserModel
 	public static string GenerateShaPassword(string password)
 	{
 		using SHA256 sha = SHA256.Create();
-		byte[] hash = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+		byte[] hash = sha.ComputeHash(Encoding.ASCII.GetBytes(password));
 		string stringHash = string.Join("", hash.Select((b) => $"{b:X2}").ToList());
 		return stringHash;
 	}

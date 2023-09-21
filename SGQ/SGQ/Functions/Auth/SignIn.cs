@@ -28,7 +28,7 @@ namespace SGQ.Functions.Auth
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var user = JsonConvert.DeserializeObject<UserModel>(requestBody);
-            UserModel convertedUser = new(user.Id, user.Name, user.Email, user.Password, user.Role);
+            UserModel convertedUser = new(user.Id, user.Name, user.Email, UserModel.GenerateShaPassword(user.Password), user.Role);
             var users = client.CreateDocumentQuery<UserModel>(UriFactory.CreateDocumentCollectionUri("sgq", "user")).ToList();
 
             if (users.Any(u => u.Email == convertedUser.Email && u.Password == convertedUser.Password))
