@@ -70,9 +70,14 @@ public class Jwt {
     public bool ValidateUserAndRoles(List<UserRole> allowedRoles, HttpRequest request, List<UserModel> users)
     {
         var (isValid, user) = ValidateJWT(request);
+
+        if (!isValid || user == null) {
+            return false;
+        }
+
         var userFromDb = users.First(u => u.Email == user.Value.Key);
 
-        if (!isValid || userFromDb == null) {
+        if (userFromDb == null) {
             return false;
         }
 

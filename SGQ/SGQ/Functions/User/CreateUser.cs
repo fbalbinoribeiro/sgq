@@ -55,7 +55,7 @@ namespace User.Functions
 
             log.LogInformation($"User id: {convertedUser.Id}");
 
-			return new OkObjectResult(convertedUser);
+			return new OkObjectResult(new UserModel(convertedUser.Id, convertedUser.Name, convertedUser.Email, convertedUser.Role));
         }
     }
 }

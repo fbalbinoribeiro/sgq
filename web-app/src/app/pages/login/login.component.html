@@ -2,25 +2,24 @@
   <div class="spacer"></div>
   <img class="logo" src="assets/img/SGQ.png" alt="" />
   <div class="spacer"></div>
-  <form class="form-box">
+  <form class="form-box" [formGroup]="loginForm" (ngSubmit)="signIn()">
     <mat-form-field class="form-el">
       <mat-label>Usuário</mat-label>
-      <input matInput />
+      <input matInput formControlName="username" placeholder="Email" />
     </mat-form-field>
     <mat-form-field class="form-el">
       <mat-label>Senha</mat-label>
-      <input matInput type="password" />
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        placeholder="Senha"
+      />
     </mat-form-field>
-    <button
-      mat-raised-button
-      color="primary"
-      class="form-el"
-      type="button"
-      (click)="signIn()"
-    >
+    <button mat-raised-button color="primary" class="form-el" type="submit">
       Entrar
     </button>
-    <button mat-stroked-button color="primary" class="form-el" type="password">
+    <button mat-stroked-button color="primary" class="form-el" type="submit">
       Esqueci a senha
     </button>
   </form>

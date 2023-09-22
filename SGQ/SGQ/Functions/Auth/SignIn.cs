@@ -40,7 +40,7 @@ namespace SGQ.Functions.Auth
 
                 log.LogInformation($"User id: {foundUser.Id}");
 
-                return new OkObjectResult(token);
+                return new OkObjectResult(new { token, user = new UserModel(foundUser.Id, foundUser.Name, foundUser.Email, foundUser.Role) });
             } else {
                 log.LogInformation($"User not found");
 
