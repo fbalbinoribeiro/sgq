@@ -76,7 +76,11 @@
 </mat-menu>
 
 <mat-menu #settings="matMenu">
-  <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN" [routerLink]="['/users']">
+  <button
+    mat-menu-item
+    *ngIf="(userRole$ | async) === UserRole.ADMIN"
+    [routerLink]="['/users']"
+  >
     Controle de usuários
   </button>
   <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
@@ -85,7 +89,11 @@
   <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">
     Controle de planos de auditoria
   </button>
-  <button mat-menu-item *ngIf="(userRole$ | async) !== UserRole.GENERAL">
+  <button
+    mat-menu-item
+    *ngIf="(userRole$ | async) !== UserRole.GENERAL"
+    [routerLink]="['/checklists']"
+  >
     Controle de checklists
   </button>
   <button mat-menu-item *ngIf="(userRole$ | async) === UserRole.ADMIN">

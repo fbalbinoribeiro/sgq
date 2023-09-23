@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { HydrationService } from './services/hydration.service';
 import { AppState } from './stores/app-state';
 import { settingsSelectors } from './stores/settings/settings.selector';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,10 @@ export class AppComponent {
 
   constructor(
     private readonly store: Store<AppState>,
-    private readonly hydrationService: HydrationService
+    private readonly hydrationService: HydrationService,
+    private readonly authService: AuthService
   ) {
     this.hydrationService.hydrateStore();
+    this.authService.autoSignIn();
   }
 }

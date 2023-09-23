@@ -10,6 +10,22 @@
   padding: 10px;
 }
 
+.center {
+  text-align: center;
+  width: 100vw;
+}
+
+.checklist-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: flex-start;
+  gap: 5px;
+  overflow: auto;
+  padding: 10px;
+}
+
 .user-title {
   flex: 1 0 100%;
   text-align: center;
@@ -29,7 +45,7 @@ mat-card {
 }
 
 mat-card-header {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -45,17 +61,4 @@ mat-card-actions {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-}
-
-.form-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  gap: 10px;
-}
-
-.form-el {
-  width: 100%;
-  max-width: 600px;
 }
