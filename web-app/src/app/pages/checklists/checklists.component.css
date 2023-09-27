@@ -31,7 +31,7 @@
   text-align: center;
 }
 
-mat-card {
+.wrapper mat-card {
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -39,12 +39,12 @@ mat-card {
 }
 
 @media screen and (max-width: 600px) {
-  mat-card {
+  .wrapper mat-card {
     flex-direction: column;
   }
 }
 
-mat-card-header {
+.wrapper mat-card-header {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ mat-card-header {
   padding: 15px;
 }
 
-mat-card-actions {
+.wrapper mat-card-actions {
   display: flex;
   flex-direction: column;
   align-items: center;
