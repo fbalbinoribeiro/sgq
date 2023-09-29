@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "db1ab804-156b-4a6b-b3ce-da2108bc41ac",
+		"name": "Checklist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10122347"
+	},
+	"item": [
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/checklists",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"checklists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Checklist ISO 9001-2015\",\r\n    \"Description\": \"Auditoria Interna - Checklist de Requisitos ISO 9001-2015\",\r\n    \"Sections\": [\r\n        {\r\n            \"SectionName\": \"4 Contexto da organização\",\r\n            \"Requests\": []\r\n        },\r\n        {\r\n            \"SectionName\": \"4.1 Entendendo a organização e seu contexto\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"A organização determina questões externas e internas que sejam pertinentes para o seu propósito e para seu direcionamento estratégico e que afetem sua capacidade de alcançar o(s) resultado(s) pretendido(s) de seu sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A organização monitora e analisa criticamente informação sobre essas questões externas e internas?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.2 Entendendo as necessidades e expectativas de partes interessadas\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Quais são as partes interessadas pertinentes ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são os requisitos legais e outros requisitos associados pertinentes ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Como as necessidades e expectativas de partes interessadas são tratadas?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.3 Determinando o escopo do sistema de gestão da qualidade\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Foi determinado o escopo do sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Foram identificadas as principais questões externas, interna e requisitos legais e os produtos e serviços que impactam o escopo do SGQ?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.4 Sistema de gestão da qualidade e seus processos\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Foram determinados os processos necessários para o sistema de gestão da qualidade e sua aplicação?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A organização mantem informação documentada que seja suficiente para o processo?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"5.1 - Liderança e comprometimento\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Está evidenciado o comprometimento e liderança da alta direção com relação ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A política da qualidade e seus objetivos estão estabelecidos para o SGQ?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Está assegurado a integração dos requisitos do SGQ nos processos?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Promove o uso da abordagem de processo e da mentalidade de risco?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Comunica à empresa a importância do atendimento aos requisitos do SGQ, requisitos legais e regulamentares aplicáveis? \"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são os indicadores do SGQ e como são acompanhados?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são as iniciativas e atividades promovidas pela alta direção que demonstram comprometimento com a melhoria contínua do SGQ?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A Alta Direção assegura que os requisitos do cliente e os requisitos estatutários são determinados, entendidos e atendidos consistentemente?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Como a Alta Direção assegura que os riscos e oportunidades que possam afetar a conformidade dos produtos e serviços e a capacidade de aumentar a satisfação do cliente são determinados?\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/checklist-create",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"checklist-create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Checklist ISO 9001-2015\",\r\n    \"Description\": \"Auditoria Interna - Checklist de Requisitos ISO 9001-2015\",\r\n    \"Sections\": [\r\n        {\r\n            \"SectionName\": \"4 Contexto da organização\",\r\n            \"Requests\": []\r\n        },\r\n        {\r\n            \"SectionName\": \"4.1 Entendendo a organização e seu contexto\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"A organização determina questões externas e internas que sejam pertinentes para o seu propósito e para seu direcionamento estratégico e que afetem sua capacidade de alcançar o(s) resultado(s) pretendido(s) de seu sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A organização monitora e analisa criticamente informação sobre essas questões externas e internas?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.2 Entendendo as necessidades e expectativas de partes interessadas\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Quais são as partes interessadas pertinentes ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são os requisitos legais e outros requisitos associados pertinentes ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Como as necessidades e expectativas de partes interessadas são tratadas?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.3 Determinando o escopo do sistema de gestão da qualidade\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Foi determinado o escopo do sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Foram identificadas as principais questões externas, interna e requisitos legais e os produtos e serviços que impactam o escopo do SGQ?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"4.4 Sistema de gestão da qualidade e seus processos\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Foram determinados os processos necessários para o sistema de gestão da qualidade e sua aplicação?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A organização mantem informação documentada que seja suficiente para o processo?\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"SectionName\": \"5.1 - Liderança e comprometimento\",\r\n            \"Requests\": [\r\n                {\r\n                    \"RequestDescription\": \"Está evidenciado o comprometimento e liderança da alta direção com relação ao sistema de gestão da qualidade?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A política da qualidade e seus objetivos estão estabelecidos para o SGQ?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Está assegurado a integração dos requisitos do SGQ nos processos?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Promove o uso da abordagem de processo e da mentalidade de risco?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Comunica à empresa a importância do atendimento aos requisitos do SGQ, requisitos legais e regulamentares aplicáveis? \"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são os indicadores do SGQ e como são acompanhados?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Quais são as iniciativas e atividades promovidas pela alta direção que demonstram comprometimento com a melhoria contínua do SGQ?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"A Alta Direção assegura que os requisitos do cliente e os requisitos estatutários são determinados, entendidos e atendidos consistentemente?\"\r\n                },\r\n                {\r\n                    \"RequestDescription\": \"Como a Alta Direção assegura que os riscos e oportunidades que possam afetar a conformidade dos produtos e serviços e a capacidade de aumentar a satisfação do cliente são determinados?\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/checklist-update?id=f5a85935-a0ed-489f-834e-944f5339b17e",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"checklist-update"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "f5a85935-a0ed-489f-834e-944f5339b17e"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImZicmliZWlybzFAbGl2ZS5jb20iLCJyb2xlIjoyfQ.sM7-tvMs-1uRneJzRMvzXE4rzeRu2KYPI8AufzHy6iA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
