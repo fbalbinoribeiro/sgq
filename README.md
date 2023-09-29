@@ -14,3 +14,7 @@
 - Instalar .Net versão 6 ou posterior.
 - Restaurar os pacotes NuGet.
 - Utilizar o arquivo `local.settings.json` enviado juntamente com o TCC ou realizar uma nova conexão à Azure (poderá gerar custos).
+
+## Apresentação
+
+- URL do video no YouTube: https://youtu.be/ixuJUKc5t4M
