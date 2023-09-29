@@ -15,6 +15,10 @@
 - Restaurar os pacotes NuGet.
 - Utilizar o arquivo `local.settings.json` enviado juntamente com o TCC ou realizar uma nova conexão à Azure (poderá gerar custos).
 
+### Postman
+
+- Todas as collections podem ser importadas e estão disponíveis na raiz do projeto.
+
 ## Apresentação
 
 - URL do video no YouTube: https://youtu.be/ixuJUKc5t4M
