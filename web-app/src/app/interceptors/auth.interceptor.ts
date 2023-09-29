@@ -22,7 +22,10 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(this.addAuthToken(request)).pipe(
       timeout(timeoutMs),
       catchError((error) => {
-        if (error.status === HttpStatusCode.Unauthorized) {
+        if (
+          error.status === HttpStatusCode.Unauthorized ||
+          error.status === HttpStatusCode.InternalServerError
+        ) {
           this.authService.signOut();
         }
         throw error;
